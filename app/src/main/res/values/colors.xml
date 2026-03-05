@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base Colors -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="green_primary">#FF007C4C</color>
+    <color name="error_red">#F27581</color>
+    <color name="beix">#E6DBC6</color>
+    <color name="light_orange">#FAB743</color>
+
+
+
+
+    <!-- Neutral Supporting Colors -->
+    <color name="gray_light">#FFF2F2F2</color>
+    <color name="gray_medium">#FFCCCCCC</color>
+    <color name="gray_dark">#FF888888</color>
+
+    <!-- Optional Accents (still minimal) -->
+    <color name="green_light">#FF4FB98C</color>
+    <color name="green_dark">#FF005F3A</color>
+
+    <color name="switch_green">#4CAF50</color>
+    <color name="switch_green_light">#81C784</color>
+
+
+
+</resources>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="24dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Registro"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/green_primary"
+            android:layout_marginTop="50dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1" />
+
+        <TextView
+            android:id="@+id/labelUsername"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Nombre de usuario"
+            android:textColor="@color/gray_dark"
+            android:textSize="14sp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintTop_toBottomOf="@id/titleText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <EditText
+            android:id="@+id/editTextRegisterUsername"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Introduce tu usuario"
+            android:inputType="textPersonName"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintTop_toBottomOf="@id/labelUsername"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/labelPhone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Teléfono"
+            android:textColor="@color/gray_dark"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/editTextRegisterUsername"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextRegisterPhone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Introduce tu número"
+            android:inputType="phone"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintTop_toBottomOf="@id/labelPhone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/labelEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Correo electrónico"
+            android:textColor="@color/gray_dark"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/editTextRegisterPhone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextRegisterEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="ejemplo@correo.com"
+            android:inputType="textEmailAddress"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintTop_toBottomOf="@id/labelEmail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/labelPassword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Contraseña"
+            android:textColor="@color/gray_dark"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/editTextRegisterEmail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextRegisterPassword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña segura"
+            android:inputType="textPassword"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintTop_toBottomOf="@id/labelPassword"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/labelConfirmPassword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Confirmar contraseña"
+            android:textColor="@color/gray_dark"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/editTextRegisterPassword"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextRegisterConfirmPassword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Repite tu contraseña"
+            android:inputType="textPassword"
+            android:layout_marginBottom="24dp"
+            app:layout_constraintTop_toBottomOf="@id/labelConfirmPassword"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonConfirmRegister"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:text="Registrarse"
+            android:layout_marginBottom="24dp"
+            style="@style/GreenBorderButton"
+            app:layout_constraintTop_toBottomOf="@id/editTextRegisterConfirmPassword"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewRegisterError"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Error de validación"
+            android:textColor="@android:color/white"
+            android:background="@color/error_red"
+            android:padding="8dp"
+            android:visibility="gone"
+            android:textSize="14sp"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/buttonConfirmRegister"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

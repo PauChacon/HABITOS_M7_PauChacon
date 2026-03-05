@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_historial"
+        android:icon="@drawable/historial_icono"
+        android:title="Historial" />
+
+    <item
+        android:id="@+id/nav_grafico"
+        android:icon="@drawable/chart_icon"
+        android:title="Gráfico" />
+
+    <item
+        android:id="@+id/nav_settings"
+        android:icon="@drawable/settings_icon"
+        android:title="Ajustes" />
+
+    <item
+        android:id="@+id/nav_terms"
+        android:icon="@drawable/termsofuseicon"
+        android:title="Términos" />
+</menu>

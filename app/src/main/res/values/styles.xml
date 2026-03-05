@@ -1,0 +1,8 @@
+<resources>
+    <style name="GreenBorderButton" parent="android:Widget.Button">
+        <item name="android:background">@drawable/button_green_border_ripple</item> <!-- usa ripple -->
+        <item name="android:textColor">@color/green_primary</item>
+        <item name="android:textStyle">bold</item> <!-- negrita -->
+        <item name="android:textSize">18sp</item> <!-- tamaño de texto más grande -->
+    </style>
+</resources>

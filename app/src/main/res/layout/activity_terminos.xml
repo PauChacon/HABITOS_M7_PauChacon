@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:padding="16dp">
+
+    <!-- Título -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="📄 Términos de Uso"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/green_primary"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="center_horizontal" />
+
+    <!-- Contenido scrolleable -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <!-- Última actualización -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Última actualización: Junio 2025"
+                android:textSize="12sp"
+                android:textStyle="italic"
+                android:textColor="@color/gray_dark"
+                android:layout_marginBottom="16dp"
+                android:gravity="center" />
+
+            <!-- Sección 1: Aceptación -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1. ACEPTACIÓN DE LOS TÉRMINOS"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/green_primary"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Al utilizar esta aplicación de gestión de hábitos, usted acepta estar sujeto a estos términos de uso. Si no está de acuerdo con alguno de estos términos, no utilice la aplicación."
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:layout_marginBottom="16dp"
+                android:lineSpacingExtra="2dp" />
+
+            <!-- Sección 2: Uso de la aplicación -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2. USO DE LA APLICACIÓN"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/green_primary"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Esta aplicación está diseñada para ayudar a los usuarios a gestionar y realizar un seguimiento de sus hábitos personales.\n\n• Debe usar la aplicación de manera responsable y conforme a la ley.\n\n• No debe usar la aplicación para actividades ilegales o dañinas.\n\n• Los datos que ingrese son de su responsabilidad y deben ser precisos."
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:layout_marginBottom="16dp"
+                android:lineSpacingExtra="2dp" />
+
+            <!-- Sección 3: Privacidad -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="3. PRIVACIDAD Y DATOS"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/green_primary"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Sus hábitos y datos personales se almacenan de forma segura.\n\n• No compartimos sus datos personales con terceros sin su consentimiento.\n\n• Puede eliminar sus datos en cualquier momento desde la configuración de la aplicación.\n\n• Utilizamos los datos únicamente para mejorar su experiencia de usuario."
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:layout_marginBottom="16dp"
+                android:lineSpacingExtra="2dp" />
+
+            <!-- Sección 4: Responsabilidades -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="4. RESPONSABILIDADES DEL USUARIO"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/green_primary"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Mantener la seguridad de su cuenta y credenciales.\n\n• Usar la aplicación de acuerdo con estos términos.\n\n• No intentar acceder a funciones no autorizadas.\n\n• Reportar cualquier problema o error que encuentre."
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:layout_marginBottom="16dp"
+                android:lineSpacingExtra="2dp" />
+
+            <!-- Sección 5: Limitaciones -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="5. LIMITACIONES DE RESPONSABILIDAD"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/green_primary"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• La aplicación se proporciona 'tal como está' sin garantías.\n\n• No somos responsables de la pérdida de datos por mal uso.\n\n• Esta aplicación es para fines educativos y de gestión personal.\n\n• No sustituye el consejo médico o profesional."
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:layout_marginBottom="16dp"
+                android:lineSpacingExtra="2dp" />
+
+            <!-- Sección 6: Modificaciones -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="6. MODIFICACIONES"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/green_primary"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nos reservamos el derecho de modificar estos términos en cualquier momento. Las modificaciones entrarán en vigor inmediatamente después de su publicación en la aplicación. Es su responsabilidad revisar periódicamente estos términos."
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:layout_marginBottom="16dp"
+                android:lineSpacingExtra="2dp" />
+
+            <!-- Sección 7: Contacto -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="7. CONTACTO"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/green_primary"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Si tiene preguntas sobre estos términos de uso, puede contactarnos a través de:\n\n📧 Email: soporte@habitosapp.com\n📱 Teléfono: +34 900 123 456\n🌐 Web: www.habitosapp.com"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:layout_marginBottom="16dp"
+                android:lineSpacingExtra="2dp" />
+
+            <!-- Aviso final -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="#E8F5E8">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="✅ Al continuar usando esta aplicación, confirma que ha leído, entendido y acepta estos términos de uso."
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/green_primary"
+                    android:padding="16dp"
+                    android:gravity="center"
+                    android:lineSpacingExtra="2dp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Botones -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonAccept"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="✅ ACEPTO"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/green_primary"
+            android:layout_marginEnd="8dp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonBack"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="VOLVER"
+            style="@style/GreenBorderButton"
+            android:layout_marginStart="8dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

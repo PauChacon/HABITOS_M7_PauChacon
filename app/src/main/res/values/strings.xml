@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Projecte_M07</string>
+
+    <string name="titulo_login">HÁBITOS ATÓMICOS</string>
+    <string name="nocuenta_registrate">¿No tienes cuenta? Regístrate aquí</string>
+    <string name="texto_boton_login">LOGIN</string>
+    <string name="titulo_pantalla_habitos">Hábitos</string>
+    <string name="texto_añadir_un_habito_extra">¿Añadir un hábito extra hoy?</string>
+    <string name="boton_editarHabitos">Añadir y Editar Hábitos</string>
+    <string name="nom_user_login">Nombre de usuario</string>
+    <string name="hint_nomuser_login">Introduce tu usuario</string>
+    <string name="contr_login">Contraseña</string>
+    <string name="hint_contralogin">Introduce tu contraseña</string>
+    <string name="hint_nombrehabito_fragment">Nombre del hábito</string>
+    <string name="cancelar_fragmet">Cancelar</string>
+</resources>
