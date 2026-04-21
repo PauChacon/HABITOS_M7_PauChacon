@@ -21,7 +21,12 @@ import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
 import java.util.*
 
+
+
 class EditarHabitos : AppCompatActivity() {
+
+
+    ahora vamos a por la zona de editar habitos y menu porque hay un problema, el caso es que desde el menu, si clico un habito me va a una pantalla para editar el habito en si. el caso esque desde el menu lo que quiero que cuando lo toque que se marque como completado sabes nose como si en gris y tachado o en verde y con un tick sabes y que lo de editar pues este literalmente donde la pantalla de editar habito que hay un boton en el menu que te lleva pues eso ahi en esa pantalla se pueden crear pero tambien esta la lista de habitos y ahi si que estaria bien que al cliclarlo se puediera editar. porque por ahora en la pantalla de crear/editar habitos si hay la lista de habitos pero solo es para verlos. sique deja eliminar pero editar no.
 
     private lateinit var inputHabitName: EditText
     private lateinit var spinnerCategory: Spinner
@@ -103,6 +108,13 @@ class EditarHabitos : AppCompatActivity() {
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawer_layout)
         val menuButton = findViewById<ImageView>(R.id.buttonMenu)
 
+        // Poner nombre real en el drawer
+        val headerView = navigationView.getHeaderView(0)
+        val headerTitle = headerView.findViewById<TextView>(R.id.header_title)
+        val prefs = getSharedPreferences("user_session", MODE_PRIVATE)
+        val username = prefs.getString("username", "Usuario")
+        headerTitle.text = getString(R.string.drawer_saludo, username)
+
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.nav_settings -> {
@@ -169,7 +181,8 @@ class EditarHabitos : AppCompatActivity() {
 
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                HabitosAPI.API().createHabito(newHabit)
+                val userId = getSharedPreferences("user_session", MODE_PRIVATE).getInt("user_id", -1)
+                HabitosAPI.API().createHabito(userId, newHabit)
 
                 withContext(Dispatchers.Main) {
                     Toast.makeText(this@EditarHabitos, "Hábito '$habitName' creado correctamente", Toast.LENGTH_SHORT).show()
@@ -209,7 +222,11 @@ class EditarHabitos : AppCompatActivity() {
     private fun loadLatestHabitsFromAPI() {
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val allHabits = HabitosAPI.API().getHabitos()
+
+                val userId = getSharedPreferences("user_session", MODE_PRIVATE).getInt("user_id", -1)
+                val allHabits = HabitosAPI.API().getHabitos(userId)
+
+
                 val latestHabits = allHabits.takeLast(3).reversed()
 
                 withContext(Dispatchers.Main) {

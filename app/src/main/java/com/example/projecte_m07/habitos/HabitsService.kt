@@ -17,24 +17,32 @@ import javax.net.ssl.TrustManager
 import javax.net.ssl.X509TrustManager
 
 interface HabitsService {
-    @GET("habitos")
-    suspend fun getHabitos(): List<Habito>
+    @GET("habitos/{userId}")
+    suspend fun getHabitos(@Path("userId") userId: Int): List<Habito>
 
-    @POST("habitos")
-    suspend fun createHabito(@Body habito: HabitoCreate): Habito
+    @POST("habitos/{userId}")
+    suspend fun createHabito(@Path("userId") userId: Int, @Body habito: HabitoCreate): Habito
 
     @PUT("habitos/{id}")
     suspend fun updateHabito(@Path("id") id: Int, @Body habito: HabitoCreate): Habito
 
     @DELETE("habitos/{id}")
     suspend fun deleteHabito(@Path("id") id: Int): Response<Unit>
+
+    @POST("register")
+    suspend fun register(@Body usuario: UsuarioCreate): UsuarioResponse
+
+    @POST("login")
+    suspend fun login(@Body usuario: UsuarioLogin): UsuarioResponse
+
+    @DELETE("usuarios/{id}")
+    suspend fun deleteUsuario(@Path("id") id: Int): Response<Unit>
 }
 
 class HabitosAPI{
     companion object  {
         private var mAPI : HabitsService? = null
-        private const val BASE_URL = "http://35.170.234.59:8000/"
-
+        private const val BASE_URL = "http://100.50.65.108:8000/"
         @Synchronized
         fun API(): HabitsService {
             if (mAPI == null){

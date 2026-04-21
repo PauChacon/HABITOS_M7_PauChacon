@@ -114,6 +114,14 @@ class EditarHabitoDetalle : AppCompatActivity() {
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawer_layout)
         val menuButton = findViewById<ImageView>(R.id.buttonMenu)
 
+        // Poner nombre real en el drawer
+        val headerView = navigationView.getHeaderView(0)
+        val headerTitle = headerView.findViewById<TextView>(R.id.header_title)
+        val prefs = getSharedPreferences("user_session", MODE_PRIVATE)
+        val username = prefs.getString("username", "Usuario")
+        headerTitle.text = getString(R.string.drawer_saludo, username)
+
+
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.nav_settings -> {

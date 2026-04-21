@@ -1,214 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/white"
-    android:padding="16dp">
+    android:background="@color/white">
 
-    <!-- Cabecera -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginBottom="24dp">
+        android:padding="16dp"
+        android:layout_above="@id/bottom_navigation">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <!-- Cabecera con flechas -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Estadísticas de Hábitos"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="@color/green_primary"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="8dp" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="40dp">
 
+            <ImageButton
+                android:id="@+id/buttonPrev"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@android:drawable/ic_media_previous"
+                android:background="@android:color/transparent"
+                android:contentDescription="Anterior" />
+
+            <TextView
+                android:id="@+id/textTituloGrafico"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Hábitos por Categoría"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/green_primary"
+                android:gravity="center" />
+
+            <ImageButton
+                android:id="@+id/buttonNext"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@android:drawable/ic_media_next"
+                android:background="@android:color/transparent"
+                android:contentDescription="Siguiente" />
+        </LinearLayout>
+
+        <!-- Subtítulo -->
         <TextView
+            android:id="@+id/textSubtitulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cantidad de hábitos por categoría"
             android:textSize="14sp"
             android:textColor="@color/gray_dark"
-            android:layout_gravity="center_horizontal" />
-    </LinearLayout>
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp" />
 
-    <!-- Gráfico -->
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_margin="8dp"
-        app:cardCornerRadius="12dp"
-        app:cardElevation="6dp"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        <!-- Botón refresh pequeño -->
+        <ImageButton
+            android:id="@+id/buttonRefresh"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@android:drawable/ic_popup_sync"
+            android:background="@android:color/transparent"
+            android:layout_gravity="end"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="Actualizar" />
 
-        <com.github.mikephil.charting.charts.BarChart
-            android:id="@+id/barChart"
+        <!-- Gráfico -->
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="16dp" />
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="6dp">
 
-    </androidx.cardview.widget.CardView>
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/barChart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="16dp" />
+        </androidx.cardview.widget.CardView>
 
-    <!-- Leyenda de colores -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Leyenda:"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:textColor="@color/green_primary"
-            android:layout_marginBottom="8dp" />
-
+        <!-- Leyenda -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginTop="12dp"
             android:weightSum="5">
 
-            <!-- Salud -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:padding="4dp">
-
-                <View
-                    android:layout_width="12dp"
-                    android:layout_height="12dp"
-                    android:background="#4CAF50"
-                    android:layout_marginEnd="4dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Salud"
-                    android:textSize="10sp" />
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="horizontal" android:gravity="center" android:padding="4dp">
+                <View android:layout_width="12dp" android:layout_height="12dp" android:background="#4CAF50" android:layout_marginEnd="4dp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Salud" android:textSize="10sp" />
             </LinearLayout>
-
-            <!-- Productividad -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:padding="4dp">
-
-                <View
-                    android:layout_width="12dp"
-                    android:layout_height="12dp"
-                    android:background="#2196F3"
-                    android:layout_marginEnd="4dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Productiv."
-                    android:textSize="10sp" />
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="horizontal" android:gravity="center" android:padding="4dp">
+                <View android:layout_width="12dp" android:layout_height="12dp" android:background="#2196F3" android:layout_marginEnd="4dp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Productiv." android:textSize="10sp" />
             </LinearLayout>
-
-            <!-- Ocio -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:padding="4dp">
-
-                <View
-                    android:layout_width="12dp"
-                    android:layout_height="12dp"
-                    android:background="#FF9800"
-                    android:layout_marginEnd="4dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Ocio"
-                    android:textSize="10sp" />
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="horizontal" android:gravity="center" android:padding="4dp">
+                <View android:layout_width="12dp" android:layout_height="12dp" android:background="#FF9800" android:layout_marginEnd="4dp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Ocio" android:textSize="10sp" />
             </LinearLayout>
-
-            <!-- Bienestar -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:padding="4dp">
-
-                <View
-                    android:layout_width="12dp"
-                    android:layout_height="12dp"
-                    android:background="#9C27B0"
-                    android:layout_marginEnd="4dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Bienestar"
-                    android:textSize="10sp" />
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="horizontal" android:gravity="center" android:padding="4dp">
+                <View android:layout_width="12dp" android:layout_height="12dp" android:background="#9C27B0" android:layout_marginEnd="4dp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Bienestar" android:textSize="10sp" />
             </LinearLayout>
-
-            <!-- Hogar -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:padding="4dp">
-
-                <View
-                    android:layout_width="12dp"
-                    android:layout_height="12dp"
-                    android:background="#F44336"
-                    android:layout_marginEnd="4dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Hogar"
-                    android:textSize="10sp" />
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="horizontal" android:gravity="center" android:padding="4dp">
+                <View android:layout_width="12dp" android:layout_height="12dp" android:background="#F44336" android:layout_marginEnd="4dp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Hogar" android:textSize="10sp" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Botones -->
-    <LinearLayout
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="16dp">
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/buttonRefresh"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:text=" ACTUALIZAR"
-            style="@style/GreenBorderButton"
-            android:layout_marginEnd="8dp" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/buttonVolver"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:text="VOLVER"
-            style="@style/GreenBorderButton"
-            android:layout_marginStart="8dp" />
-    </LinearLayout>
-
-</LinearLayout>
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        app:menu="@menu/bottom_nav_menu"
+        app:itemIconTint="@color/green_light"
+        app:itemTextColor="@color/black" />
+</RelativeLayout>

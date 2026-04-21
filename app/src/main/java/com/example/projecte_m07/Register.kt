@@ -7,6 +7,12 @@ import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.example.projecte_m07.habitos.HabitosAPI
+import com.example.projecte_m07.habitos.UsuarioCreate
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class Register : AppCompatActivity() {
 
@@ -90,9 +96,34 @@ class Register : AppCompatActivity() {
         }
 
         if (isValid) {
-            Toast.makeText(this, "Registro correcto", Toast.LENGTH_LONG).show()
-            val intent = Intent(this, Menu::class.java)
-            startActivity(intent)        }
+            val nuevoUsuario = UsuarioCreate(user, mail, tel, pass)
+
+            CoroutineScope(Dispatchers.IO).launch {
+                try {
+                    val response = HabitosAPI.API().register(nuevoUsuario)
+
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(this@Register, "Cuenta creada correctamente, inicia sesión", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this@Register, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+                } catch (e: retrofit2.HttpException) {
+                    val errorMsg = if (e.code() == 400) {
+                        "El usuario o email ya existe"
+                    } else {
+                        "Error al registrar: ${e.message()}"
+                    }
+                    withContext(Dispatchers.Main) {
+                        showError(errorMsg, username)
+                    }
+                } catch (e: Exception) {
+                    withContext(Dispatchers.Main) {
+                        showError("Error de conexión: ${e.message}", username)
+                    }
+                }
+            }
+        }
     }
 
     private fun resetField(field: EditText) {

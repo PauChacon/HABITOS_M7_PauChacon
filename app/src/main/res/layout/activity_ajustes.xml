@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/background_light">
@@ -21,13 +20,14 @@
             android:gravity="center"
             android:layout_marginBottom="24dp" />
 
+        <!-- PERFIL -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="PERFIL"
             android:textSize="14sp"
             android:textStyle="bold"
-            android:textColor="@android:color/holo_blue_dark"
+            android:textColor="@color/green_primary"
             android:layout_marginBottom="8dp" />
 
         <LinearLayout
@@ -64,376 +64,51 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nombre, foto y preferencias personales"
+                    android:text="Nombre, email y teléfono"
                     android:textSize="12sp"
                     android:textColor="@android:color/darker_gray" />
             </LinearLayout>
-
-            <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:src="@android:drawable/ic_media_play"
-                android:rotation="270"
-                android:layout_gravity="center_vertical" />
         </LinearLayout>
 
+        <!-- CUENTA -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="NOTIFICACIONES"
+            android:text="CUENTA"
             android:textSize="14sp"
             android:textStyle="bold"
-            android:textColor="@android:color/holo_blue_dark"
+            android:textColor="@color/green_primary"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="8dp" />
 
         <LinearLayout
-            android:id="@+id/recordatorios_layout"
+            android:id="@+id/logout_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:background="@android:drawable/list_selector_background"
             android:padding="16dp"
+            android:clickable="true"
+            android:focusable="true"
             android:layout_marginBottom="1dp">
 
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@android:drawable/ic_popup_reminder"
+                android:src="@android:drawable/ic_menu_revert"
                 android:layout_gravity="center_vertical"
                 android:layout_marginEnd="16dp" />
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Recordatorios diarios"
-                    android:textSize="16sp"
-                    android:textColor="@android:color/black" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Recibe notificaciones para tus hábitos"
-                    android:textSize="12sp"
-                    android:textColor="@android:color/darker_gray" />
-            </LinearLayout>
-
-            <Switch
-                android:id="@+id/switch_recordatorios"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:checked="true" />
+                android:text="Cerrar sesión"
+                android:textSize="16sp"
+                android:textColor="@android:color/black" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/horario_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@android:drawable/list_selector_background"
-            android:padding="16dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:layout_marginBottom="1dp">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@android:drawable/ic_lock_idle_alarm"
-                android:layout_gravity="center_vertical"
-                android:layout_marginEnd="16dp" />
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Horario de notificaciones"
-                    android:textSize="16sp"
-                    android:textColor="@android:color/black" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="8:00 AM - 10:00 PM"
-                    android:textSize="12sp"
-                    android:textColor="@android:color/darker_gray" />
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:src="@android:drawable/ic_media_play"
-                android:rotation="270"
-                android:layout_gravity="center_vertical" />
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="PREFERENCIAS"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/holo_blue_dark"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="8dp" />
-
-        <LinearLayout
-            android:id="@+id/tema_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@android:drawable/list_selector_background"
-            android:padding="16dp"
-            android:layout_marginBottom="1dp">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@android:drawable/ic_menu_view"
-                android:layout_gravity="center_vertical"
-                android:layout_marginEnd="16dp" />
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tema oscuro"
-                    android:textSize="16sp"
-                    android:textColor="@android:color/black" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Cambiar apariencia de la aplicación"
-                    android:textSize="12sp"
-                    android:textColor="@android:color/darker_gray" />
-            </LinearLayout>
-
-            <Switch
-                android:id="@+id/switch_tema"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:checked="false" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/ordenar_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@android:drawable/list_selector_background"
-            android:padding="16dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:layout_marginBottom="1dp">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@android:drawable/ic_menu_sort_by_size"
-                android:layout_gravity="center_vertical"
-                android:layout_marginEnd="16dp" />
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Ordenar hábitos por"
-                    android:textSize="16sp"
-                    android:textColor="@android:color/black" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Importancia"
-                    android:textSize="12sp"
-                    android:textColor="@android:color/darker_gray" />
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:src="@android:drawable/ic_media_play"
-                android:rotation="270"
-                android:layout_gravity="center_vertical" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/semana_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@android:drawable/list_selector_background"
-            android:padding="16dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:layout_marginBottom="1dp">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@android:drawable/ic_menu_week"
-                android:layout_gravity="center_vertical"
-                android:layout_marginEnd="16dp" />
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Primer día de la semana"
-                    android:textSize="16sp"
-                    android:textColor="@android:color/black" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lunes"
-                    android:textSize="12sp"
-                    android:textColor="@android:color/darker_gray" />
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:src="@android:drawable/ic_media_play"
-                android:rotation="270"
-                android:layout_gravity="center_vertical" />
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="DATOS"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/holo_blue_dark"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="8dp" />
-
-        <LinearLayout
-            android:id="@+id/exportar_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@android:drawable/list_selector_background"
-            android:padding="16dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:layout_marginBottom="1dp">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@android:drawable/ic_menu_save"
-                android:layout_gravity="center_vertical"
-                android:layout_marginEnd="16dp" />
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Exportar datos"
-                    android:textSize="16sp"
-                    android:textColor="@android:color/black" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Crear respaldo de tus hábitos"
-                    android:textSize="12sp"
-                    android:textColor="@android:color/darker_gray" />
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:src="@android:drawable/ic_media_play"
-                android:rotation="270"
-                android:layout_gravity="center_vertical" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/importar_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@android:drawable/list_selector_background"
-            android:padding="16dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:layout_marginBottom="1dp">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@android:drawable/ic_menu_upload"
-                android:layout_gravity="center_vertical"
-                android:layout_marginEnd="16dp" />
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Importar datos"
-                    android:textSize="16sp"
-                    android:textColor="@android:color/black" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Restaurar respaldo anterior"
-                    android:textSize="12sp"
-                    android:textColor="@android:color/darker_gray" />
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:src="@android:drawable/ic_media_play"
-                android:rotation="270"
-                android:layout_gravity="center_vertical" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/borrar_layout"
+            android:id="@+id/borrar_cuenta_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -448,7 +123,7 @@
                 android:layout_height="24dp"
                 android:src="@android:drawable/ic_menu_delete"
                 android:layout_gravity="center_vertical"
-                android:layout_marginEnd="16dp"/>
+                android:layout_marginEnd="16dp" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -459,45 +134,35 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Borrar todos los datos"
+                    android:text="Borrar cuenta"
                     android:textSize="16sp"
                     android:textColor="@android:color/holo_red_dark" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Eliminar permanentemente todos los hábitos"
+                    android:text="Se eliminará tu cuenta permanentemente"
                     android:textSize="12sp"
                     android:textColor="@android:color/darker_gray" />
             </LinearLayout>
-
-            <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:src="@android:drawable/ic_media_play"
-                android:rotation="270"
-                android:layout_gravity="center_vertical" />
         </LinearLayout>
 
+        <!-- ACERCA DE -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ACERCA DE"
             android:textSize="14sp"
             android:textStyle="bold"
-            android:textColor="@android:color/holo_blue_dark"
+            android:textColor="@color/green_primary"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="8dp" />
 
         <LinearLayout
-            android:id="@+id/version_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="@android:drawable/list_selector_background"
             android:padding="16dp"
-            android:clickable="true"
-            android:focusable="true"
             android:layout_marginBottom="1dp">
 
             <ImageView
@@ -529,60 +194,14 @@
             </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/ayuda_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@android:drawable/list_selector_background"
-            android:padding="16dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:layout_marginBottom="1dp">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@android:drawable/ic_menu_help"
-                android:layout_gravity="center_vertical"
-                android:layout_marginEnd="16dp" />
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Ayuda y soporte"
-                    android:textSize="16sp"
-                    android:textColor="@android:color/black" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Preguntas frecuentes y contacto"
-                    android:textSize="12sp"
-                    android:textColor="@android:color/darker_gray" />
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:src="@android:drawable/ic_media_play"
-                android:rotation="270"
-                android:layout_gravity="center_vertical" />
-        </LinearLayout>
-
+        <!-- Botón volver -->
         <Button
-            android:id="@+id/btn_guardar"
+            android:id="@+id/btn_volver"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Guardar Cambios"
+            android:text="Volver"
             android:layout_marginTop="24dp"
-            android:background="@android:color/holo_blue_light"
+            android:backgroundTint="@color/green_primary"
             android:textColor="@android:color/white"
             android:textSize="16sp"
             android:minHeight="48dp" />

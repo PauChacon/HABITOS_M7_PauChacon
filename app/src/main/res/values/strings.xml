@@ -13,4 +13,24 @@
     <string name="hint_contralogin">Introduce tu contraseña</string>
     <string name="hint_nombrehabito_fragment">Nombre del hábito</string>
     <string name="cancelar_fragmet">Cancelar</string>
+    <string name="descripcion_logo_app">Logo de la app</string>
+    <string name="menu_lateral_img">Abrir menú</string>
+    <string name="sub_titulo_mis_habitos">Mis Hábitos</string>
+    <string name="filtro_habitos_img">Filtrar hábitos</string>
+    <string name="cruz_popup_img">Cerrar</string>
+    <string name="titulo_pantalla_registro">Registro</string>
+    <string name="h2_nombre_usuario">Nombre de usuario</string>
+    <string name="textbox_introduce_usuario">Introduce tu usuario</string>
+    <string name="h2_telefono">Teléfono</string>
+    <string name="textbox_telefono">Introduce tu número</string>
+    <string name="h2_mail">Correo electrónico</string>
+    <string name="textbox_mail">ejemplo@correo.com</string>
+    <string name="h2_password">Contraseña</string>
+    <string name="textbox_password">Contraseña segura</string>
+    <string name="h2_confirm_password">Confirmar contraseña</string>
+    <string name="textbox_confirm_password">Repite tu contraseña</string>
+    <string name="boton_register">Registrarse</string>
+    <string name="error_validation_text">Error de validación</string>
+    <string name="imag_type_habito">Imagen categoría</string>
+    <string name="drawer_saludo">Hola, %1$s</string>
 </resources>

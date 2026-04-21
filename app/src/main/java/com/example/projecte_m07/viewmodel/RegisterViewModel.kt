@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 class RegisterViewModel : ViewModel() {
 
     private val _error = MutableLiveData<String?>()
-    val error: LiveData<String?> = _error
 
     fun validate(username: String, email: String, phone: String, password: String, confirmPassword: String): Boolean {
         _error.value = null

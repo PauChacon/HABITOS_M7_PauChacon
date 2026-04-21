@@ -1,36 +1,89 @@
 package com.example.projecte_m07
 
+import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.Switch
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.projecte_m07.habitos.HabitosAPI
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class Ajustes : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ajustes)
 
-        // Botón principal que existe en tu XML
-        val guardarButton = findViewById<Button>(R.id.btn_guardar)
-        guardarButton.setOnClickListener {
-            Toast.makeText(this, "Configuración guardada", Toast.LENGTH_SHORT).show()
+        // Editar perfil — de momento aviso, lo implementamos pronto
+        findViewById<android.view.View>(R.id.perfil_layout).setOnClickListener {
+            Toast.makeText(this, "Próximamente", Toast.LENGTH_SHORT).show()
+        }
+
+        // Cerrar sesión
+        findViewById<android.view.View>(R.id.logout_layout).setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle("Cerrar sesión")
+                .setMessage("¿Seguro que quieres cerrar sesión?")
+                .setPositiveButton("Sí") { _, _ ->
+                    val prefs = getSharedPreferences("user_session", MODE_PRIVATE)
+                    prefs.edit().clear().apply()
+
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+                    finish()
+                }
+                .setNegativeButton("Cancelar", null)
+                .show()
+        }
+
+        // Borrar cuenta
+        findViewById<android.view.View>(R.id.borrar_cuenta_layout).setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle("Borrar cuenta")
+                .setMessage("¿Estás seguro? Se eliminará tu cuenta y todos tus datos permanentemente. Esta acción no se puede deshacer.")
+                .setPositiveButton("Sí, borrar") { _, _ ->
+                    borrarCuenta()
+                }
+                .setNegativeButton("Cancelar", null)
+                .show()
+        }
+
+        // Volver
+        findViewById<android.view.View>(R.id.btn_volver).setOnClickListener {
             finish()
         }
+    }
 
-        // Los switches que tienes en tu XML (solo para que no den error)
-        val switchRecordatorios = findViewById<Switch>(R.id.switch_recordatorios)
-        val switchTema = findViewById<Switch>(R.id.switch_tema)
+    private fun borrarCuenta() {
+        val prefs = getSharedPreferences("user_session", MODE_PRIVATE)
+        val userId = prefs.getInt("user_id", -1)
 
-        // Listeners básicos para los switches (solo muestran toast)
-        switchRecordatorios.setOnCheckedChangeListener { _, isChecked ->
-            val mensaje = if (isChecked) "Recordatorios activados" else "Recordatorios desactivados"
-            Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show()
+        if (userId == -1) {
+            Toast.makeText(this, "Error: no se encontró la sesión", Toast.LENGTH_SHORT).show()
+            return
         }
 
-        switchTema.setOnCheckedChangeListener { _, isChecked ->
-            val mensaje = if (isChecked) "Tema oscuro activado" else "Tema claro activado"
-            Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show()
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                HabitosAPI.API().deleteUsuario(userId)
+
+                withContext(Dispatchers.Main) {
+                    prefs.edit().clear().apply()
+                    Toast.makeText(this@Ajustes, "Cuenta eliminada", Toast.LENGTH_SHORT).show()
+
+                    val intent = Intent(this@Ajustes, MainActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+                    finish()
+                }
+            } catch (e: Exception) {
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(this@Ajustes, "Error al borrar cuenta: ${e.message}", Toast.LENGTH_LONG).show()
+                }
+            }
         }
     }
 }

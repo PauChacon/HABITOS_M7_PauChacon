@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projecte_m07.habitos.HabitoAdapter
 import com.example.projecte_m07.habitos.HabitosAPI
-import com.example.projecte_m07.habitos.PruebaAPI
 import com.example.recyclerview.habitos.Habito
 import com.example.recyclerview.habitos.HabitoCreate
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -54,6 +53,17 @@ class Menu : AppCompatActivity() {
 
     private fun initializeViews() {
         recyclerView = findViewById(R.id.recyclerHabitos)
+
+        // Saludo con el nombre del usuario
+        val saludos = listOf(
+            "Hola", "Ey", "Qué tal", "Buenas", "Saludos", "Hey", "Bienvenid@", "Qué pasa", "Cómo andamos", "A darle caña", "Vamos allá", "De vuelta", "Qué hay", "Arrancamos", "Al lío"
+        )
+        val prefs = getSharedPreferences("user_session", MODE_PRIVATE)
+        val username = prefs.getString("username", "")
+        val saludo = saludos.random()
+        val textSaludo = findViewById<TextView>(R.id.textSaludo)
+        textSaludo.text = "$saludo, $username!"
+
     }
 
     private fun setupAnimations() {
@@ -95,7 +105,8 @@ class Menu : AppCompatActivity() {
             CoroutineScope(Dispatchers.IO).launch {
                 listaHabitos.forEach { habito ->
                     try {
-                        HabitosAPI.API().createHabito(habito)
+                        val userId = getSharedPreferences("user_session", MODE_PRIVATE).getInt("user_id", -1)
+                        HabitosAPI.API().createHabito(userId, habito)
                         Log.d("Menu", "Hábito insertado: ${habito.nombre}")
                     } catch (e: Exception) {
                         Log.e("Menu", "Error al insertar hábito: ${habito.nombre}", e)
@@ -114,6 +125,14 @@ class Menu : AppCompatActivity() {
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawer_layout)
         val menuButton = findViewById<ImageView>(R.id.buttonMenu)
         val navigationView = findViewById<NavigationView>(R.id.navigation_view)
+
+        // Poner nombre real en el drawer
+        val headerView = navigationView.getHeaderView(0)
+        val headerTitle = headerView.findViewById<TextView>(R.id.header_title)
+        val prefs = getSharedPreferences("user_session", MODE_PRIVATE)
+        val username = prefs.getString("username", "Usuario")
+        headerTitle.text = getString(R.string.drawer_saludo, username)
+
         val editarHabitosButton = findViewById<Button>(R.id.buttonEditHabits)
 
         menuButton.setOnClickListener {
@@ -142,10 +161,8 @@ class Menu : AppCompatActivity() {
                     true
                 }
 
-                R.id.nav_prueba -> {
-                    startActivity(Intent(this, PruebaAPI::class.java))
-                    true
-                }
+
+
 
                 else -> false
             }.also {
@@ -154,28 +171,25 @@ class Menu : AppCompatActivity() {
         }
 
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottomNav.selectedItemId = R.id.nav_inicio
+        bottomNav.selectedItemId = R.id.nav_inicio
         bottomNav.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
+                R.id.nav_inicio -> {
+                    true
+                }
                 R.id.nav_settings -> {
                     startActivity(Intent(this, Ajustes::class.java))
                     true
                 }
-
-                R.id.nav_terms -> {
-                    startActivity(Intent(this, TerminosDeUso::class.java))
-                    true
-                }
-
                 R.id.nav_historial -> {
                     startActivity(Intent(this, MenuHistorial::class.java))
                     true
                 }
-
                 R.id.nav_grafico -> {
                     startActivity(Intent(this, GraficoHabitos::class.java))
                     true
                 }
-
                 else -> false
             }
         }
@@ -253,7 +267,8 @@ class Menu : AppCompatActivity() {
     private fun loadHabitsFromAPI() {
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val response = HabitosAPI.API().getHabitos()
+                val userId = getSharedPreferences("user_session", MODE_PRIVATE).getInt("user_id", -1)
+                val response = HabitosAPI.API().getHabitos(userId)
                 withContext(Dispatchers.Main) {
                     allHabits = response
                     applyFilter() // Aplicar el filtro actual
@@ -285,7 +300,8 @@ class Menu : AppCompatActivity() {
     private fun refreshHabitsList() {
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val response = HabitosAPI.API().getHabitos()
+                val userId = getSharedPreferences("user_session", MODE_PRIVATE).getInt("user_id", -1)
+                val response = HabitosAPI.API().getHabitos(userId)
                 withContext(Dispatchers.Main) {
                     allHabits = response
                     applyFilter() // Mantener el filtro aplicado

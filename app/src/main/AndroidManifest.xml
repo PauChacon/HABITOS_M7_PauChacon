@@ -25,7 +25,6 @@
         <activity android:name=".Menu" android:exported="false" />
         <activity android:name=".EditarHabitos" android:exported="false" />
         <activity android:name=".MenuHistorial" android:exported="false" />
-        <activity android:name=".habitos.PruebaAPI" android:exported="false" />
         <activity android:name=".EditarHabitoDetalle" android:exported="false" />
         <activity android:name=".GraficoHabitos" android:exported="false" />
 
