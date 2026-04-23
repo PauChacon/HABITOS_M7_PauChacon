@@ -1,20 +1,23 @@
 package com.example.projecte_m07.habitos
 
-import android.content.Intent
+import android.content.res.ColorStateList
 import android.graphics.Color
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.projecte_m07.EditarHabitoDetalle
 import com.example.projecte_m07.R
 import com.example.recyclerview.habitos.Habito
 import java.text.SimpleDateFormat
 import java.util.*
 
-class HabitoAdapter(private val listaHabitos: List<Habito>) : RecyclerView.Adapter<HabitoAdapter.HabitoViewHolder>() {
+class HabitoAdapter(
+    private val listaHabitos: MutableList<Habito>,
+    private val onItemClick: (Habito, Int) -> Unit
+) : RecyclerView.Adapter<HabitoAdapter.HabitoViewHolder>() {
 
     private val categoriaToImagen: Map<String, Int> = mapOf(
         "Salud" to R.drawable.ic_salud,
@@ -28,7 +31,7 @@ class HabitoAdapter(private val listaHabitos: List<Habito>) : RecyclerView.Adapt
         val tvNombre: TextView = view.findViewById(R.id.tvNombre)
         val tvHora: TextView = view.findViewById(R.id.tvHora)
         val ivCategoria: ImageView = view.findViewById(R.id.ivCategoria)
-        val cardView: View = view // Para el click en toda la tarjeta
+        val cardView: View = view
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HabitoViewHolder {
@@ -41,19 +44,15 @@ class HabitoAdapter(private val listaHabitos: List<Habito>) : RecyclerView.Adapt
 
         holder.tvNombre.text = habito.nombre
 
-        // Solo cambiar color según importancia
         if (habito.importante) {
             holder.tvNombre.setTextColor(Color.parseColor("#FF0000"))
         } else {
             holder.tvNombre.setTextColor(Color.BLACK)
         }
 
-        // Hora formateada
-        val hora = habito.hora
         val sdf = SimpleDateFormat("HH:mm", Locale.getDefault())
-        holder.tvHora.text = if (hora != null) sdf.format(hora) else ""
+        holder.tvHora.text = if (habito.hora != null) sdf.format(habito.hora) else ""
 
-        // Imagen de categoría
         val resId = categoriaToImagen[habito.categoria]
         if (resId != null) {
             holder.ivCategoria.setImageResource(resId)
@@ -62,17 +61,23 @@ class HabitoAdapter(private val listaHabitos: List<Habito>) : RecyclerView.Adapt
             holder.ivCategoria.visibility = View.GONE
         }
 
-        // Click listener para toda la tarjeta
+        aplicarEstadoCompletado(holder, habito.completado)
+
         holder.cardView.setOnClickListener {
-            val context = holder.itemView.context
-            val intent = Intent(context, EditarHabitoDetalle::class.java).apply {
-                putExtra("HABITO_ID", habito.id)
-                putExtra("HABITO_NOMBRE", habito.nombre)
-                putExtra("HABITO_CATEGORIA", habito.categoria)
-                putExtra("HABITO_IMPORTANTE", habito.importante)
-                putExtra("HABITO_HORA", if (hora != null) sdf.format(hora) else "08:00")
-            }
-            context.startActivity(intent)
+            onItemClick(habito, position)
+        }
+    }
+
+    private fun aplicarEstadoCompletado(holder: HabitoViewHolder, completado: Boolean) {
+        if (completado) {
+            holder.tvNombre.paintFlags = holder.tvNombre.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            holder.tvNombre.setTextColor(Color.parseColor("#A0A0A0"))
+            holder.cardView.alpha = 0.6f
+            holder.ivCategoria.imageTintList = ColorStateList.valueOf(Color.parseColor("#4CAF50"))
+        } else {
+            holder.tvNombre.paintFlags = holder.tvNombre.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            holder.cardView.alpha = 1.0f
+            holder.ivCategoria.imageTintList = null
         }
     }
 

@@ -18,3 +18,27 @@ data class UsuarioResponse(
     val email: String,
     val telefono: String
 )
+
+data class UsuarioUpdateRequest(
+    val username: String,
+    val email: String,
+    val telefono: String
+)
+
+data class HistorialCreate(
+    val tipo: String,
+    val nombre_habito: String,
+    val categoria: String,
+    val importante: Boolean,
+    val hora: String
+)
+
+data class HistorialEntry(
+    val id: Int,
+    val tipo: String,
+    val nombre_habito: String,
+    val categoria: String,
+    val importante: Boolean,
+    val hora: String,
+    val fecha: String
+)

@@ -13,7 +13,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ajustes"
+            android:text="@string/titulo_ajustes"
             android:textSize="24sp"
             android:textStyle="bold"
             android:textColor="@android:color/black"
@@ -24,7 +24,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="PERFIL"
+            android:text="@string/subtitulo_perfil"
             android:textSize="14sp"
             android:textStyle="bold"
             android:textColor="@color/green_primary"
@@ -57,14 +57,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Editar perfil"
+                    android:text="@string/botton_editar_perfil"
                     android:textSize="16sp"
                     android:textColor="@android:color/black" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nombre, email y teléfono"
+                    android:text="@string/subtitulo_boton_editar_perfil"
                     android:textSize="12sp"
                     android:textColor="@android:color/darker_gray" />
             </LinearLayout>
@@ -74,7 +74,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="CUENTA"
+            android:text="@string/subtitulo_cuenta"
             android:textSize="14sp"
             android:textStyle="bold"
             android:textColor="@color/green_primary"
@@ -102,7 +102,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cerrar sesión"
+                android:text="@string/boton_cerrar_sesion"
                 android:textSize="16sp"
                 android:textColor="@android:color/black" />
         </LinearLayout>
@@ -134,14 +134,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Borrar cuenta"
+                    android:text="@string/boton_borrar_cuenta"
                     android:textSize="16sp"
                     android:textColor="@android:color/holo_red_dark" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Se eliminará tu cuenta permanentemente"
+                    android:text="@string/subtitulo_boton_borrar_cuenta"
                     android:textSize="12sp"
                     android:textColor="@android:color/darker_gray" />
             </LinearLayout>
@@ -151,7 +151,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ACERCA DE"
+            android:text="@string/subtitulo_acercade"
             android:textSize="14sp"
             android:textStyle="bold"
             android:textColor="@color/green_primary"
@@ -181,14 +181,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Versión de la app"
+                    android:text="@string/boton_version_app"
                     android:textSize="16sp"
                     android:textColor="@android:color/black" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1.0.0"
+                    android:text="@string/num_version"
                     android:textSize="12sp"
                     android:textColor="@android:color/darker_gray" />
             </LinearLayout>
@@ -199,7 +199,7 @@
             android:id="@+id/btn_volver"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Volver"
+            android:text="@string/boton_volver_ajustes"
             android:layout_marginTop="24dp"
             android:backgroundTint="@color/green_primary"
             android:textColor="@android:color/white"

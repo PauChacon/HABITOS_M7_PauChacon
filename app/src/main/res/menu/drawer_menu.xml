@@ -3,5 +3,4 @@
     <item android:id="@+id/nav_grafico" android:title="Gráfico" android:icon="@drawable/chart_icon" />
     <item android:id="@+id/nav_settings" android:title="Ajustes" android:icon="@drawable/settings_icon" />
     <item android:id="@+id/nav_terms" android:title="Condiciones de uso" android:icon="@drawable/termsofuseicon" />
-    <item android:id="@+id/nav_prueba" android:title="PRUEBA API" android:icon="@drawable/logo_app" />
 </menu>

@@ -16,9 +16,8 @@ class Ajustes : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ajustes)
 
-        // Editar perfil — de momento aviso, lo implementamos pronto
         findViewById<android.view.View>(R.id.perfil_layout).setOnClickListener {
-            Toast.makeText(this, "Próximamente", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, EditarPerfil::class.java))
         }
 
         // Cerrar sesión

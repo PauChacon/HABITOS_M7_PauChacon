@@ -27,7 +27,7 @@
                 android:layout_height="48dp"
                 android:src="@android:drawable/ic_media_previous"
                 android:background="@android:color/transparent"
-                android:contentDescription="Anterior" />
+                android:contentDescription="@string/buton_anterior_graficos" />
 
             <TextView
                 android:id="@+id/textTituloGrafico"
@@ -46,7 +46,7 @@
                 android:layout_height="48dp"
                 android:src="@android:drawable/ic_media_next"
                 android:background="@android:color/transparent"
-                android:contentDescription="Siguiente" />
+                android:contentDescription="@string/buton_siguiente_graficos" />
         </LinearLayout>
 
         <!-- Subtítulo -->
@@ -70,7 +70,7 @@
             android:layout_gravity="end"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:contentDescription="Actualizar" />
+            android:contentDescription="@string/buton_actu_graficos" />
 
         <!-- Gráfico -->
         <androidx.cardview.widget.CardView
@@ -98,23 +98,23 @@
 
             <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="horizontal" android:gravity="center" android:padding="4dp">
                 <View android:layout_width="12dp" android:layout_height="12dp" android:background="#4CAF50" android:layout_marginEnd="4dp" />
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Salud" android:textSize="10sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/graficos_salud" android:textSize="10sp" />
             </LinearLayout>
             <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="horizontal" android:gravity="center" android:padding="4dp">
                 <View android:layout_width="12dp" android:layout_height="12dp" android:background="#2196F3" android:layout_marginEnd="4dp" />
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Productiv." android:textSize="10sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/graficos_productividad" android:textSize="10sp" />
             </LinearLayout>
             <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="horizontal" android:gravity="center" android:padding="4dp">
                 <View android:layout_width="12dp" android:layout_height="12dp" android:background="#FF9800" android:layout_marginEnd="4dp" />
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Ocio" android:textSize="10sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/graficos_ocio" android:textSize="10sp" />
             </LinearLayout>
             <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="horizontal" android:gravity="center" android:padding="4dp">
                 <View android:layout_width="12dp" android:layout_height="12dp" android:background="#9C27B0" android:layout_marginEnd="4dp" />
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Bienestar" android:textSize="10sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/graficos_bienestar" android:textSize="10sp" />
             </LinearLayout>
             <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="horizontal" android:gravity="center" android:padding="4dp">
                 <View android:layout_width="12dp" android:layout_height="12dp" android:background="#F44336" android:layout_marginEnd="4dp" />
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Hogar" android:textSize="10sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/graficos_hogar" android:textSize="10sp" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

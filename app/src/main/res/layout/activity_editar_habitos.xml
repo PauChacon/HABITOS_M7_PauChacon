@@ -24,7 +24,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Crear Nuevo Hábito"
+                    android:text="@string/titulo_crear_habito"
                     android:textSize="24sp"
                     android:layout_marginTop="50dp"
                     android:textStyle="bold"
@@ -37,7 +37,7 @@
                     android:layout_height="48dp"
                     android:src="@drawable/ic_menu"
                     android:layout_alignParentEnd="true"
-                    android:contentDescription="Abrir menú"
+                    android:contentDescription="@string/boton_sidebar_inCrearhabito"
                     android:layout_marginEnd="16dp"
                     android:layout_marginTop="16dp"/>
             </RelativeLayout>
@@ -59,7 +59,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Nombre del Hábito"
+                        android:text="@string/subtitulo_crear_habito_nombre"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:textColor="@color/green_primary"
@@ -69,7 +69,7 @@
                         android:id="@+id/inputHabitName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Ej: Hacer ejercicio"
+                        android:hint="@string/edittext_crear_hint"
                         android:backgroundTint="@color/green_primary"
                         android:padding="12dp"
                         android:layout_marginBottom="20dp" />
@@ -77,7 +77,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Categoría"
+                        android:text="@string/subtiltulo_crear_categoria"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:textColor="@color/green_primary"
@@ -101,7 +101,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="¿Es importante?"
+                            android:text="@string/subtitulo_crear_esimportante"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             android:textColor="@color/green_primary" />
@@ -117,7 +117,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Hora del Hábito"
+                        android:text="@string/subtitulo_crear_hora"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:textColor="@color/green_primary"
@@ -135,7 +135,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Seleccionar hora"
+                            android:text="@string/boton_crear_hora"
                             android:textSize="16sp"
                             android:padding="12dp"
                             android:background="@drawable/habit_background"
@@ -148,41 +148,27 @@
                             android:src="@drawable/ic_add2"
                             android:background="@android:color/transparent"
                             android:layout_marginStart="8dp"
-                            android:contentDescription="Seleccionar hora" />
+                            android:contentDescription="@string/boton_crear_hora_imagen" />
                     </LinearLayout>
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/buttonCreateHabit"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:text="CREAR HÁBITO"
+                        android:text="@string/boton_crear_habito"
                         style="@style/GreenBorderButton"
                         android:layout_marginTop="10dp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hábitos Existentes"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/green_primary"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="16dp" />
 
-            <LinearLayout
-                android:id="@+id/listaHabitos"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-            </LinearLayout>
+
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonVolver"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:text="VOLVER"
+                android:text="@string/boton_volver_crearhabito"
                 style="@style/GreenBorderButton"
                 android:layout_marginBottom="30dp"
                 android:layout_marginTop="16dp" />

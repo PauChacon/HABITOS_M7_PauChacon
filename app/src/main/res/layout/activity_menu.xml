@@ -42,7 +42,7 @@
                     android:id="@+id/buttonMenu"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:src="@drawable/ic_menu"
+                    android:src="@android:drawable/ic_menu_view"
                     android:layout_alignParentEnd="true"
                     android:contentDescription="@string/menu_lateral_img"
                     android:layout_marginEnd="16dp"
@@ -70,7 +70,7 @@
                     android:id="@+id/buttonFilter"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:src="@drawable/filtrar"
+                    android:src="@android:drawable/ic_menu_search"
                     android:background="@android:color/transparent"
                     android:contentDescription="@string/filtro_habitos_img"
                     android:scaleType="centerInside"
@@ -144,7 +144,7 @@
                             android:id="@+id/closeBannerBtn"
                             android:layout_width="32dp"
                             android:layout_height="32dp"
-                            android:src="@drawable/deletecross"
+                            android:src="@android:drawable/ic_delete"
                             android:background="@android:color/transparent"
                             android:contentDescription="@string/cruz_popup_img"
                             android:scaleType="centerInside"
@@ -160,8 +160,15 @@
                 android:layout_height="50dp"
                 android:text="@string/boton_editarHabitos"
                 style="@style/GreenBorderButton"
-                android:layout_marginBottom="40dp"
                 android:layout_marginTop="16dp" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonDeleteHabits"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Borrar Hábito"
+                style="@style/GreenBorderButton"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="40dp" />
         </LinearLayout>
 
         <!-- Menú inferior -->

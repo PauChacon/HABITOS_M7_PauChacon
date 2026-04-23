@@ -1,47 +1,39 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <!-- Título -->
     <TextView
-        android:id="@+id/titleText"
+        android:id="@+id/titleHistorial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Historial de Hábitos"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@color/green_primary"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="32dp"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        android:layout_alignParentTop="true"/>
 
-    <!-- Mensaje temporal -->
-    <TextView
-        android:id="@+id/workingText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Estamos trabajando en ello 🚧"
-        android:textSize="26sp"
-        android:textColor="@color/error_red"
-        app:layout_constraintTop_toBottomOf="@id/titleText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="250dp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerHistorial"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/titleHistorial"
+        android:layout_above="@id/bottom_navigation"
+        android:padding="16dp"
+        android:clipToPadding="false"/>
 
-    <!-- Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:background="@color/white"
         app:menu="@menu/bottom_nav_menu"
         app:itemIconTint="@color/green_light"
-        app:itemTextColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:itemTextColor="@color/black" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

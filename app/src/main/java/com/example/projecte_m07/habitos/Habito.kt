@@ -12,7 +12,8 @@ data class Habito(
     val nombre: String,
     val categoria: String,
     val importante: Boolean,
-    val hora: Date?
+    val hora: Date?,
+    val completado: Boolean = false
 ) : Parcelable
 
 // Clase para crear un nuevo hábito

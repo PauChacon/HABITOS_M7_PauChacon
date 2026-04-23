@@ -37,6 +37,18 @@ interface HabitsService {
 
     @DELETE("usuarios/{id}")
     suspend fun deleteUsuario(@Path("id") id: Int): Response<Unit>
+
+    @PATCH("habitos/{id}/completar")
+    suspend fun completarHabito(@Path("id") id: Int, @Body data: Map<String, Boolean>): Habito
+
+    @PUT("usuarios/{id}")
+    suspend fun updateUsuario(@Path("id") id: Int, @Body usuario: UsuarioUpdateRequest): UsuarioResponse
+
+    @POST("historial/{userId}")
+    suspend fun addHistorial(@Path("userId") userId: Int, @Body entrada: HistorialCreate): Map<String, String>
+
+    @GET("historial/{userId}")
+    suspend fun getHistorial(@Path("userId") userId: Int): List<HistorialEntry>
 }
 
 class HabitosAPI{
