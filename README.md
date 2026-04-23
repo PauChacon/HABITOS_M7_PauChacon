@@ -132,7 +132,8 @@ app/
 ```
 
 ---
-
+WARNINGS:
+https://docs.google.com/document/d/1ZuO5vwfph9RTZpONim_4CE2OiiSOVFsLvd0K9v2m5pw/edit?usp=sharing
 ## 👨‍💻 Autor
 
 Pau Chacón — Cicle Superior DAM
